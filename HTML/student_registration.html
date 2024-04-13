@@ -117,6 +117,74 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    // Wait for the DOM content to fully load
+document.addEventListener('DOMContentLoaded', function() {
+    // Get the registration form element
+    const registrationForm = document.querySelector('#registrationForm');
 
+    // Add event listener for form submission
+    registrationForm.addEventListener('submit', function(event) {
+        // Prevent the default form submission behavior
+        event.preventDefault();
+
+        // Validate form fields
+        if (validateForm()) {
+            // If form is valid, submit the form
+            this.submit();
+        }
+    });
+
+    // Function to validate form fields
+    function validateForm() {
+        // Get form input values
+        const name = document.querySelector('#name').value.trim();
+        const regNo = document.querySelector('#reg_no').value.trim();
+        const email = document.querySelector('#email').value.trim();
+        const programme = document.querySelector('input[name="programme"]:checked');
+        const semester = document.querySelector('input[name="semester"]:checked');
+        const subjects = document.querySelectorAll('input[name="subjects"]:checked');
+
+        // Validate name
+        if (name === '') {
+            alert('Please enter your name.');
+            return false;
+        }
+
+        // Validate registration number
+        if (regNo === '') {
+            alert('Please enter your registration number.');
+            return false;
+        }
+
+        // Validate email
+        if (email === '') {
+            alert('Please enter your email address.');
+            return false;
+        }
+
+        // Validate programme selection
+        if (!programme) {
+            alert('Please select your programme (BE or ME).');
+            return false;
+        }
+
+        // Validate semester selection
+        if (!semester) {
+            alert('Please select your current semester.');
+            return false;
+        }
+
+        // Validate subject selection (at least one subject must be selected)
+        if (subjects.length === 0) {
+            alert('Please select at least one subject.');
+            return false;
+        }
+
+        // All validation passed
+        return true;
+    }
+});
+</script>
 </body>
 </html>
