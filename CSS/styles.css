@@ -1,0 +1,81 @@
+/* Body and general styling */
+body {
+    font-family: 'Arial', sans-serif;
+    color: #333; /* Dark text color */
+    background-color: #ffcc00; /* Yellow background */
+    padding-top: 50px; /* Space from top */
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.card {
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+    background-color: #ff4d4d; /* Red background */
+    color: #fff; /* White text color */
+    font-weight: bold;
+}
+
+/* Form styling */
+.form-group label {
+    font-weight: bold;
+}
+
+.form-control {
+    border-radius: 5px;
+}
+
+.btn {
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: #333; /* Dark button background */
+    color: #ffcc00; /* Yellow button text color */
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #555; /* Darker button background on hover */
+}
+
+/* Input and checkbox/radio button styling */
+input[type="file"],
+input[type="text"],
+input[type="email"],
+input[type="radio"],
+input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+/* Optional: Customize form validation styles */
+input:invalid {
+    border-color: #ff0000; /* Red border for invalid input */
+}
+
+/* Custom classes */
+.btn-custom {
+    background-color: #555; /* Dark button background */
+    color: #ffcc00; /* Yellow button text color */
+    border: none;
+}
+
+.btn-custom:hover {
+    background-color: #777; /* Darker button background on hover */
+}
+
+/* Optional: Additional styling for specific elements */
+/* Customize as needed based on project requirements */
+
