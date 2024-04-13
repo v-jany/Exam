@@ -106,6 +106,7 @@
                             </div>
                             <!-- Add more subjects as needed -->
                         </div>
+                        <div id="countdown"></div>
                         <button type="submit" class="btn btn-custom btn-block">Register</button>
                     </form>
                 </div>
@@ -118,6 +119,36 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    // Set the deadline date for registration countdown (15th April 2024)
+    const deadlineDate = new Date('2024-04-15').getTime();
+
+    // Update the countdown every second
+    const countdownTimer = setInterval(function() {
+        // Get the current date and time
+        const currentDate = new Date().getTime();
+
+        // Calculate the remaining time in milliseconds
+        const remainingTime = deadlineDate - currentDate;
+
+        // Calculate days, hours, minutes, and seconds
+        const days = Math.floor(remainingTime / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((remainingTime % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((remainingTime % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((remainingTime % (1000 * 60)) / 1000);
+
+        // Display the countdown timer
+        document.getElementById('countdown').innerHTML = `
+            <p>Registration Deadline: ${days}d ${hours}h ${minutes}m ${seconds}s</p>
+        `;
+
+        // Stop the countdown when the deadline is reached
+        if (remainingTime < 0) {
+            clearInterval(countdownTimer);
+            document.getElementById('countdown').innerHTML = '<p>Registration Deadline has passed.</p>';
+        }
+    }, 1000); // Update every second (1000 milliseconds)
+                                       </script>
 <script>
     // Wait for the DOM content to fully load
 document.addEventListener('DOMContentLoaded', function() {
