@@ -25,6 +25,11 @@ try {
             echo '<td>' . $row['email'] . '</td>';
             echo '<td>' . ucfirst($row['programme']) . '</td>';
             echo '<td>' . $row['semester'] . '</td>';
+            echo '<td>' . $row['subjects'] . '</td'>;
+            echo '<td>
+                      <a href="delete_student.php?id=' . $row['id'] . '" class="btn btn-primary btn-sm">Delete</a>
+                      <a href="reject_student.php?id=' . $row['id'] . '" class="btn btn-danger btn-sm">Reject</a>
+            </td>';
             echo '</tr>';
         }
 
