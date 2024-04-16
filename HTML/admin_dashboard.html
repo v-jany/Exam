@@ -149,6 +149,7 @@
                                 <th>Programme</th>
                                 <th>Semester</th>
                                 <th>Subjects</th>
+                                <th>Status</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -170,6 +171,7 @@
                                 echo '<td>' . ucfirst($row['programme']) . '</td>';
                                 echo '<td>Semester ' . $row['semester'] . '</td>';
                                 echo '<td>' . $row['subjects'] . '</td>';
+                                echo '<td>' . $row['status'] . '</td>;
                                 echo '<td>
                                         <a href="delete_student.php?id=' . $row['id'] . '" class="btn btn-primary btn-sm">Delete</a>
                                         <a href="reject_student.php?id=' . $row['id'] . '" class="btn btn-danger btn-sm">Reject</a>
