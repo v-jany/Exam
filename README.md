@@ -16,7 +16,7 @@ CREATE TABLE registrations (
     subjects TEXT,
     registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     UNIQUE KEY unique_email (email),
-    status VARCHAR(20) NOT NULL DEFAULT 'Pending';
+    status VARCHAR(20) NOT NULL DEFAULT 'Pending'
 );
 
 CREATE TABLE administrators (
