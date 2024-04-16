@@ -15,7 +15,7 @@ try {
     if ($stmt->rowCount() > 0) {
         echo '<h2>Registered Students List</h2>';
         echo '<table border="1">';
-        echo '<tr><th>Name</th><th>Registration Number</th><th>Email</th><th>Programme</th><th>Semester</th></tr>';
+        echo '<tr><th>Name</th><th>Registration Number</th><th>Email</th><th>Programme</th><th>Semester</th><th>Subjects</th><th>Actions</th></tr>';
 
         // Loop through the results and display each student
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
@@ -25,6 +25,12 @@ try {
             echo '<td>' . $row['email'] . '</td>';
             echo '<td>' . ucfirst($row['programme']) . '</td>';
             echo '<td>' . $row['semester'] . '</td>';
+            echo '<td>' . $row['subjects'] . '</td>';
+            echo '<td>
+                                        <a href="delete_student.php?id=' . $row['id'] . '" class="btn btn-primary btn-sm">Delete</a>
+                                        <a href="reject_student.php?id=' . $row['id'] . '" class="btn btn-danger btn-sm">Reject</a>
+                                        <a href="approve_student.php?id=' . $row['id'] . '" class="btn btn-success btn-sm">Approve</a>
+                                      </td>';
             echo '</tr>';
         }
 
