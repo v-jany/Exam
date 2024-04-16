@@ -11,23 +11,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
         $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        // Prepare SQL statement to update registration status to 'Approved'
+        // Prepare SQL statement to delete registration by ID
         $stmt = $pdo->prepare("DELETE FROM registrations WHERE id = ?");
         $stmt->execute([$registration_id]);
 
-        if ($stmt->execute()) {
-        // Registration deleted successfully
-        echo "Student registration deleted successfully.";
-    } else {
-        // Error occurred while deleting registration
-        echo "Error: " . $conn->error;
-    }
+        // Check if deletion was successful
+        if ($stmt->rowCount() > 0) {
+            // Registration deleted successfully
+            echo "Student registration deleted successfully.";
+        } else {
+            // No rows affected (registration not found)
+            echo "Student registration not found or already deleted.";
+        }
 
-    // Close statement and database connection
-    $stmt->close();
-    $conn->close();
+        // Close statement and database connection
+        $stmt->closeCursor(); // Close cursor before closing statement
+        $pdo = null; // Close connection
 
-        // Redirect to admin dashboard after successful approval
+        // Redirect to admin dashboard after successful deletion
         header('Location: admin_dashboard.html');
         exit();
     } catch (PDOException $e) {
@@ -35,7 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
         die("Error: " . $e->getMessage());
     }
 } else {
-    // Redirect to admin dashboard if accessed incorrectly
+    // Redirect to admin dashboard if accessed incorrectly or missing parameters
     header('Location: admin_dashboard.html');
     exit();
 }
