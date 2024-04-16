@@ -15,7 +15,7 @@ try {
     if ($stmt->rowCount() > 0) {
         echo '<h2>Approved Students List</h2>';
         echo '<table border="1">';
-        echo '<tr><th>Name</th><th>Registration Number</th><th>Email</th><th>Programme</th><th>Semester</th></tr>';
+        echo '<tr><th>Name</th><th>Registration Number</th><th>Email</th><th>Programme</th><th>Semester</th><th>Subjects</th><th>Actions</th></tr>';
 
         // Loop through the results and display each student
         while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) {
