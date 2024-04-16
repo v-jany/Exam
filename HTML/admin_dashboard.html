@@ -64,6 +64,13 @@
         .filter-dropdown-content a:hover {
             background-color: #f9f9f9;
         }
+        .search-form {
+            flex-grow: 1; /* Allow search form to grow and fill remaining space */
+            margin-left: 20px; /* Add margin to separate search form from other elements */
+        }
+        .form-control {
+            border-radius: 20px; /* Rounded corners for the search input */
+        }
     </style>
     <style>
         body {
@@ -93,8 +100,13 @@
 <div class="header">
             <!-- Left side: Image -->
             <img src="path_to_your_image.jpg" alt="Logo" style="height: 30px; margin-right: 10px;">
-
-            <!-- Right side: Dropdown button -->
+            <!-- HTML form for search input -->
+<form method="GET" action="search_results.php" class="search-form">
+    <input type="text" name="search" class="form-control" placeholder="Search by name or registration number">
+    <button type="submit">Search</button>
+</form>
+    
+<!-- Right side: Dropdown button -->
             <div class="dropdown">
                 <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <!-- Three dots icon -->
