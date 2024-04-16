@@ -8,22 +8,39 @@
     <!-- Bootstrap CSS -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body {
-            background-color: #ffcc00; /* Yellow background */
-            color: #333; /* Dark text color */
-            font-family: Arial, sans-serif; /* Use professional font */
-        }
-        .container {
-            margin-top: 50px;
-        }
-        .card {
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        .card-header {
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             background-color: #ff4d4d; /* Red background */
+            padding: 10px;
             color: #fff; /* White text color */
-            font-weight: bold;
+        }
+        .header img {
+            width: 50px;
+            height: auto;
+            margin-right: 10px;
+        }
+        .btn-dropdown {
+            background-color: blue;
+            border: 2;
+            color: #fff;
+            cursor: pointer;
+        }
+        .dropdown-menu {
+            min-width: 150px;
+            background-color: #fff;
+            border-radius: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .dropdown-item {
+            padding: 10px 15px;
+            font-size: 14px;
+            color: #333;
+            transition: background-color 3s ease;
+        }
+        .dropdown-item:hover {
+            background-color: #f5f5f5;
         }
         filter-dropdown {
             position: relative;
@@ -47,13 +64,59 @@
         .filter-dropdown-content a:hover {
             background-color: #f9f9f9;
         }
+    </style>
+    <style>
+        body {
+            background-color: #ffcc00; /* Yellow background */
+            color: #333; /* Dark text color */
+            font-family: Arial, sans-serif; /* Use professional font */
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .card-header {
+            background-color: #ff4d4d; /* Red background */
+            color: #fff; /* White text color */
+            font-weight: bold;
+        }
+        
         .table {
             margin-top: 20px;
         }
     </style>
 </head>
 <body>
+<div class="header">
+            <!-- Left side: Image -->
+            <img src="path_to_your_image.jpg" alt="Logo" style="height: 30px; margin-right: 10px;">
 
+            <!-- Right side: Dropdown button -->
+            <div class="dropdown">
+                <button class="btn btn-dropdown dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <!-- Three dots icon -->
+                    &#9776; <!-- Unicode for three dots -->
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="index.html">Home</a>
+                    <a>
+                        <div class="filter-dropdown">
+                        <button class="btn btn-primary" onclick="toggleFilterDropdown()">Filter</button>
+                        <div class="filter-dropdown-content" id="filterDropdown">
+                            <a href="approved_students.php">Approved</a>
+                            <a href="rejected_students.php">Rejected</a>
+                            <a href="pending_students.php">Pending</a>
+                            <a href="all_students.php">All</a>
+                        </div>
+                    </div>
+                    </a>
+                    <a class="dropdown-item" href="logout.php">Logout</a>
+                </div>
+            </div>
+</div>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
@@ -63,15 +126,7 @@
                 </div>
                 <form action="filter_students.php" method="GET" class="mt-3">
                 <div class="card-body">
-                    <div class="filter-dropdown">
-                        <button class="btn btn-primary" onclick="toggleFilterDropdown()">Filter</button>
-                        <div class="filter-dropdown-content" id="filterDropdown">
-                            <a href="approved_students.php">Approved</a>
-                            <a href="rejected_students.php">Rejected</a>
-                            <a href="pending_students.php">Pending</a>
-                            <a href="all_students.php">All</a>
-                        </div>
-                    </div>
+                    
                     <table class="table table-bordered">
                         <thead>
                             <tr>
