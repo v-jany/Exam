@@ -15,7 +15,8 @@ CREATE TABLE registrations (
     semester INT NOT NULL,
     subjects TEXT,
     registration_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    UNIQUE KEY unique_email (email)
+    UNIQUE KEY unique_email (email),
+    status VARCHAR(20) NOT NULL DEFAULT 'Pending';
 );
 
 CREATE TABLE administrators (
